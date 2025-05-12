@@ -1,0 +1,73 @@
+-------------------------------------------------STORE PROCEDURE-------------------------------------------------
+1.-
+----
+ /*lista de prestamos de cada cliente*/
+---
+
+DELIMITER $$
+CREATE PROCEDURE listaGeneralPrestamos()
+BEGIN 
+SELECT p.prestamo_id , /*int*/
+concat(c.nombre,' ',c.apellido)as clientes, /*string*/
+p.monto,  /*bigDecimal*/
+p.tiempo, /*int*/
+p.tasa_interes, /*bigDecimal*/
+p.fecha_inicio, /*date*/ 
+p.fecha_vencimiento,/*date*/
+p.estado, /*string*/
+p.monto + (p.monto*(p.tasa_interes/100)) as 'importeTotal' /*BigDecimal*/
+FROM prestamos p
+JOIN clientes c 
+ON p.cliente_id = c.cliente_id; 
+END $$
+DELIMITER 
+
+2.-
+--- 
+ /*LISTA DE PRESTAMOS POR ESTADO("pendiente" || "pagado" ) */
+---
+DELIMITER $$
+CREATE PROCEDURE listaPrestamosPorEstado(in estado varchar(50))
+BEGIN 
+SELECT p.prestamo_id , /*int*/
+concat(c.nombre,' ',c.apellido)as clientes, /*string*/
+p.monto,  /*bigDecimal*/
+p.tiempo, /*int*/
+p.tasa_interes, /*bigDecimal*/
+p.fecha_inicio, /*date*/ 
+p.fecha_vencimiento,/*date*/
+p.estado, /*string*/
+p.monto + (p.monto*(p.tasa_interes/100)) as 'importeTotal' /*BigDecimal*/
+FROM prestamos p
+JOIN clientes c 
+ON p.cliente_id = c.cliente_id
+WHERE p.estado = estado;
+END $$
+DELIMITER 
+
+
+3.-
+--- 
+ /*LISTA DE PAGOS POR CLIENTE */
+---
+
+DELIMITER $$
+CREATE PROCEDURE listPagosByIdPrestamo(in idPrestamo int)
+BEGIN
+SELECT p.pago_id
+,concat(c.nombre,' ',c.apellido)as cliente 
+,pr.monto 
+,pr.tiempo
+,pr.tasa_interes
+,p.monto_pago  
+,p.fecha_pago 
+,p.metodo_pago  
+FROM pagos p
+JOIN prestamos pr
+ON p.prestamo_id=pr.prestamo_id
+JOIN clientes c
+ON pr.cliente_id=c.cliente_id
+WHERE p.prestamo_id=idPrestamo; 
+END $$
+DELIMITER 
+

@@ -1,0 +1,132 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+/* LOGIN */
+.container-login {
+	background-color: black;
+}
+
+.wrapper-description {
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+	top: 0;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+.formulario {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 40px;
+	gap: 30px;
+	height: 100%;
+	background: linear-gradient(
+		to left,
+		rgba(0, 0, 0) 10%,
+		rgba(0, 0, 0),
+		rgb(0, 0, 0) 10%
+	);
+}
+.formulario h2 {
+	font-size: 3rem;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: center;
+	font-family: "Italiana", sans-serif;
+}
+.formulario form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	gap: 15px;
+}
+.formulario form input,
+button {
+	padding: 10px 20px;
+	border-radius: 10px;
+	background: transparent;
+	border: 1px solid rgb(132, 131, 131); /*01241d*/
+	color: white;
+}
+.formulario form button {
+	border: 1px solid white;
+	background: linear-gradient(
+		to right,
+		transparent 50%,
+		rgb(222, 222, 222) 50%
+	);
+	background-position: left;
+	background-size: 200%;
+	transition: 1s ease-in-out all;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+}
+.formulario form button:hover {
+	background-position: right;
+	color: black;
+}
+
+.formulario form a {
+	font-weight: bolder;
+}
+.formulario form .registrar {
+	text-align: center;
+}
+.formulario form a:hover {
+	color: #c5b28d;
+	cursor: pointer;
+}
+.formulario form section {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+}
+.formulario form section img {
+	width: 2rem;
+}
+.formulario form section a {
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+}
+.formulario form section a:hover {
+	background-color: #ffffff;
+}
+.welcome {
+	flex: 2;
+	height: 100%;
+	background: url("./assets/login.png");
+	background-size: cover;
+	background-position: center;
+}
+.fa-facebook-f {
+	color: #3b5998;
+}
+/* DASHBOARD */
+.container-dashboard-main {
+	display: flex;
+	height: 100vh;
+}
+.container-dashboard-content {
+	background-color: #000000;
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+}
+.container-dashboard-description {
+	height: 100%;
+	overflow-y: auto;
+	color: rgb(252, 252, 252);
+}
+@media (max-width: 768px) {
+	.container-dashboard-main {
+		flex-wrap: wrap;
+	}
+}

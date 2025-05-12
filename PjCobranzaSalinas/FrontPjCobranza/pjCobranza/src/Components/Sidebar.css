@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* LOGO */
+
+.container-logo {
+	width: 100%;
+	line-height: 2px;
+	cursor: pointer;
+}
+
+.container-lyrs {
+	display: flex;
+	position: relative;
+	gap: 10px;
+}
+.container-lyrs div:first-child {
+	display: flex;
+	align-items: center;
+	font-size: 60px;
+	font-family: "Kaushan Script", cursive;
+}
+.container-lyrs div:last-child {
+	display: flex;
+	font-size: 18px;
+	align-items: center;
+	line-height: 20px;
+	font-family: "Kaushan Script", cursive;
+	font-weight: 400;
+	font-style: normal;
+}
+.container-logo .icon {
+	width: 100%;
+	display: flex;
+	justify-content: end;
+}
+.container-logo .icon img {
+	width: 30px;
+	transform: scaleX(-1);
+}
+.fa-telegram {
+	rotate: 290deg;
+	font-size: 1.5rem;
+}
+
+/* SIDEBAR */
+.container-sidebar {
+	height: 100vh;
+	width: 210px;
+	background-color: black;
+	background: linear-gradient(to top, #7e7e7e, #272424, #060606);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 40px;
+	cursor: pointer;
+	transition: right 0.8s ease-in-out;
+}
+
+/* Reemplazo de la lista horizontal en móviles */
+.container-sidebar ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 40vh;
+}
+
+/* Elementos de la lista */
+.container-sidebar ul li {
+	list-style: none;
+	padding-block: 10px;
+	padding-inline: 10px;
+	border-radius: 10px;
+	transition: all 0.4s ease-in-out;
+}
+
+/* Iconos específicos de tamaño */
+.short {
+	width: 60%;
+}
+.mediana {
+	width: 75%;
+}
+.large {
+	width: 85%;
+}
+
+/* Invertir icono */
+.fa-right-from-bracket {
+	transform: scaleX(-1);
+}
+
+.fa-right-from-bracket:hover {
+	color: #000000;
+}
+
+/* Sección del dashboard */
+.container-sidebar .dashboard {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.container-sidebar .dashboard div {
+	display: flex;
+	gap: 5px;
+}
+
+/* Efecto hover */
+.container-sidebar li:hover {
+	background: transparent;
+	width: 100%;
+}
+
+#hamburgueza,
+.isOpenHamburgueza,
+.isCloseHamburgueza {
+	font-size: 1.3rem;
+	font-weight: bold;
+	display: none;
+	color: rgb(255, 255, 255);
+}
+.isOpenHamburgueza:hover,
+.isCloseHamburgueza:hover {
+	color: rgb(11, 147, 124);
+}
+.wrapper-sidebar-main {
+	background-color: #000000;
+}
+
+/*HEADER DASHBOARD*/
+
+.container-header {
+	width: 100%;
+	height: 10vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: 40px;
+	color: white;
+}
+.container-header div {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.fa-user-circle {
+	color: #ffffff;
+	font-size: 1.5rem;
+}
+/* RESPONSIVIDAD para pantallas pequeñas */
+
+@media (max-width: 1115px) {
+	/*HEADER*/
+	.container-header {
+		padding: 0;
+		font-size: 1rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.isOpenHamburgueza,
+	.isCloseHamburgueza {
+		display: block;
+		padding-top: 10px;
+	}
+	.wrapper-sidebar-main {
+		width: 100%;
+		display: flex;
+		justify-content: end;
+	}
+	.container-sidebar {
+		position: fixed;
+		width: 60%;
+		height: 100vh;
+		top: 0;
+		right: -100vw;
+		z-index: 100;
+	}
+	.isCloseHamburgueza {
+		position: absolute;
+		top: 0px;
+		right: 10px;
+	}
+	#hamburgueza:checked ~ section {
+		right: 0;
+	}
+
+	.container-logo {
+		padding-top: 80px;
+		width: 40%;
+	}
+
+	/*HEADER*/
+	.container-header {
+		padding: 0;
+		font-size: 1rem;
+	}
+}
+@media (max-width: 680px) {
+	.container-logo {
+		width: 48%;
+	}
+}
+@media (max-width: 550px) {
+	.container-logo {
+		width: 60%;
+	}
+	/*HEADER*/
+	.container-header {
+		padding: 0;
+		font-size: 0.9rem;
+	}
+}
+/* Responsividad adicional para pantallas más pequeñas (móviles en vertical) */
+@media (max-width: 480px) {
+	.container-logo {
+		padding-top: 80px;
+		width: 70%;
+	}
+	/*HEADER*/
+	.container-header {
+		padding: 0;
+		font-size: 1rem;
+	}
+}
+@media (max-width: 450px) {
+	.container-logo {
+		width: 75%;
+	}
+}
+@media (max-width: 430px) {
+	.container-logo {
+		width: 80%;
+	}
+	/*HEADER*/
+	.container-header {
+		padding: 0;
+		font-size: 1rem;
+	}
+}
+@media (max-width: 380px) {
+	.container-logo {
+		padding-top: 80px;
+		width: 100%;
+	}
+	/*HEADER*/
+	.container-header {
+		padding: 0;
+		font-size: 1rem;
+	}
+}
